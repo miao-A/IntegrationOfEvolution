@@ -12,5 +12,7 @@
 	<classpathentry kind="lib" path="D:/eclipse/plugins/org.eclipse.jdt.core_3.9.2.v20140114-1555.jar" sourcepath="D:/eclipse/plugins/org.eclipse.jdt.core.source_3.9.2.v20140114-1555.jar"/>
 	<classpathentry kind="lib" path="D:/eclipse/plugins/org.eclipse.jface_3.9.1.v20130725-1141.jar"/>
 	<classpathentry kind="lib" path="D:/eclipse/plugins/org.eclipse.text_3.5.300.v20130515-1451.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/dropins/lib/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/dropins/lib/jfreechart-1.0.19.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

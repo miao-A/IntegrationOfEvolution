@@ -1,6 +1,7 @@
 package parseUtil;
 
 import java.util.Map;
+import java.util.Vector;
 
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
@@ -16,6 +17,9 @@ public class ProjectFileUtil {
 	private  String pathOfProject;
 	private  String pathOfLib;
 	private  ASTParser parser;
+	private static Vector<InfoOfExtensibility> vec = new Vector<>();
+
+	
 	
 	public ProjectFileUtil(String pathOfProject){
 //		this.pathOfLib = pathOfLib;
@@ -41,10 +45,6 @@ public class ProjectFileUtil {
 		Map complierOptions= JavaCore.getOptions();
 		JavaCore.setComplianceOptions(JavaCore.VERSION_1_7, complierOptions);
 		parser.setCompilerOptions(complierOptions);
-
-		// obtain sourceFilePaths
-		String[] sourceFilePaths  =FilePath.getAllFiles(pathOfProject, ".java");
-//		System.out.println("fileread over!");
 	
 	}
 
@@ -52,8 +52,20 @@ public class ProjectFileUtil {
 		// TODO Auto-generated method stub
 		
 		// obtain requestor
+		String[] sourceFilePaths = FilePath.getAllFiles(pathOfProject, ".java");
+		System.out.println("fileread over!");
+		
 		ExtensibilityRequestor requestor = new ExtensibilityRequestor();
-		parser.createASTs(FilePath.getAllFiles(pathOfProject, ".java"), null, new String[0], requestor, null);
-		requestor.showInfoOfExitensibily();		
+		parser.createASTs(sourceFilePaths, null, new String[0], requestor, null);
+//		requestor.showInfoOfExitensibily();	
+		InfoOfExtensibility info = requestor.showInfoOfExitensibily();
+		vec.add(info);
+
+	}
+	public void showChart() {
+		String[] strings={"",""};
+		CreateChartServiceImpl cr = new CreateChartServiceImpl(strings,strings,vec);
+
+		System.out.println("\nEND.");
 	}
 }

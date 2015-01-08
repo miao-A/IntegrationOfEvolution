@@ -1,11 +1,14 @@
 package visitorUtil;
 
 import java.text.DecimalFormat;
+import java.util.Vector;
 
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.FileASTRequestor;
+import org.eclipse.jface.bindings.Trigger;
 
 import parseUtil.AstUnit;
+import parseUtil.InfoOfExtensibility;
 
 public class ExtensibilityRequestor extends FileASTRequestor {
 
@@ -32,14 +35,17 @@ public class ExtensibilityRequestor extends FileASTRequestor {
 		super.acceptAST(sourceFilePath, ast);
 	}
 
-	public void showInfoOfExitensibily() {
+	public InfoOfExtensibility showInfoOfExitensibily() {
 		// TODO Auto-generated method stub
 		System.out.print("NumOfInter: "+getNumOfInter());
 		System.out.print("\tNumOfClass: "+getNumOfClass());
 		double ratioOfInterface = 100.0*getNumOfInter()/getNumOfClass();
 		DecimalFormat df = new DecimalFormat("#.00");
 		System.out.printf("  RatioOfInter: "+df.format(ratioOfInterface));
+		InfoOfExtensibility info = new InfoOfExtensibility(getNumOfInter(),getNumOfClass(),ratioOfInterface);
+		
 		System.out.println();
+		return info;
 		
 
 	}
