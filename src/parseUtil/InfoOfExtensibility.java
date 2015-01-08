@@ -14,6 +14,4 @@ public class InfoOfExtensibility {
 	public double getThird(){
 		return third;
 	}
-//test	
-	
 }
