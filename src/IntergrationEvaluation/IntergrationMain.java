@@ -6,11 +6,9 @@ import java.util.StringTokenizer;
 
 import org.eclipse.jdt.internal.compiler.env.ICompilationUnit;
 
+import org.jfree.chart.*;
 import parseUtil.ProjectFileUtil;
 
-import org.jfree.chart.*;
-
-import parseUtil.CreateChartServiceImpl;
 public class IntergrationMain {
 	
 	
